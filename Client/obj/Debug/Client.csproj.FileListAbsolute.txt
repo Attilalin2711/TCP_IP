@@ -1,0 +1,8 @@
+C:\Users\david2711\Documents\Visual Studio 2013\Projects\TCPIP\Client\bin\Debug\Client.exe.config
+C:\Users\david2711\Documents\Visual Studio 2013\Projects\TCPIP\Client\bin\Debug\Client.exe
+C:\Users\david2711\Documents\Visual Studio 2013\Projects\TCPIP\Client\bin\Debug\Client.pdb
+C:\Users\david2711\Documents\Visual Studio 2013\Projects\TCPIP\Client\obj\Debug\Client.Form1.resources
+C:\Users\david2711\Documents\Visual Studio 2013\Projects\TCPIP\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\david2711\Documents\Visual Studio 2013\Projects\TCPIP\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\david2711\Documents\Visual Studio 2013\Projects\TCPIP\Client\obj\Debug\Client.exe
+C:\Users\david2711\Documents\Visual Studio 2013\Projects\TCPIP\Client\obj\Debug\Client.pdb

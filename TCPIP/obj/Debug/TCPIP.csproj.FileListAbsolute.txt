@@ -1,0 +1,9 @@
+c:\users\david2711\documents\visual studio 2013\Projects\TCPIP\TCPIP\bin\Debug\TCPIP.exe.config
+c:\users\david2711\documents\visual studio 2013\Projects\TCPIP\TCPIP\bin\Debug\TCPIP.exe
+c:\users\david2711\documents\visual studio 2013\Projects\TCPIP\TCPIP\bin\Debug\TCPIP.pdb
+c:\users\david2711\documents\visual studio 2013\Projects\TCPIP\TCPIP\obj\Debug\TCPIP.csprojResolveAssemblyReference.cache
+c:\users\david2711\documents\visual studio 2013\Projects\TCPIP\TCPIP\obj\Debug\TCPIP.frmSever.resources
+c:\users\david2711\documents\visual studio 2013\Projects\TCPIP\TCPIP\obj\Debug\TCPIP.Properties.Resources.resources
+c:\users\david2711\documents\visual studio 2013\Projects\TCPIP\TCPIP\obj\Debug\TCPIP.csproj.GenerateResource.Cache
+c:\users\david2711\documents\visual studio 2013\Projects\TCPIP\TCPIP\obj\Debug\TCPIP.exe
+c:\users\david2711\documents\visual studio 2013\Projects\TCPIP\TCPIP\obj\Debug\TCPIP.pdb
