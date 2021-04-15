@@ -1,0 +1,8 @@
+C:\Users\david2711\documents\visual studio 2013\Projects\TCPIP\client2\bin\Debug\client2.exe.config
+C:\Users\david2711\documents\visual studio 2013\Projects\TCPIP\client2\bin\Debug\client2.exe
+C:\Users\david2711\documents\visual studio 2013\Projects\TCPIP\client2\bin\Debug\client2.pdb
+C:\Users\david2711\documents\visual studio 2013\Projects\TCPIP\client2\obj\Debug\client2.Form1.resources
+C:\Users\david2711\documents\visual studio 2013\Projects\TCPIP\client2\obj\Debug\client2.Properties.Resources.resources
+C:\Users\david2711\documents\visual studio 2013\Projects\TCPIP\client2\obj\Debug\client2.csproj.GenerateResource.Cache
+C:\Users\david2711\documents\visual studio 2013\Projects\TCPIP\client2\obj\Debug\client2.exe
+C:\Users\david2711\documents\visual studio 2013\Projects\TCPIP\client2\obj\Debug\client2.pdb
