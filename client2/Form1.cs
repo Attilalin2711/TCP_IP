@@ -28,28 +28,55 @@ namespace client2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            clientSocket.Connect(textBox1.Text, Int32.Parse(textBox2.Text));
-            Thread ctThread = new Thread(getMessage);
-            ctThread.Start();
+            try
+            {
+                clientSocket.Connect(textBox1.Text, Int32.Parse(textBox2.Text));
+                this.pictureBox1.Image = Image.FromFile("C://Users//david2711//Desktop//GREEN.jfif");
+                Thread ctThread = new Thread(getMessage);
+                ctThread.Start();
+            }
+            catch (SocketException ex)
+            {
+                Console.WriteLine("SocketException: {0}", ex);
+            }
         }
         private void getMessage()
         {
-            string returndate;
-            while (true)
+            try
             {
-                serverStream = clientSocket.GetStream();
+                string returndate;
                 var buffsize = clientSocket.ReceiveBufferSize;
                 byte[] instream = new byte[buffsize];
 
-                serverStream.Read(instream, 0, buffsize);
-                returndate = System.Text.Encoding.ASCII.GetString(instream);
-
-                readdate = returndate;
-                if (readdate!=null)
-                    this.pictureBox1.Image = Image.FromFile("C://Users//david2711//Desktop//GREEN.jfif");
-                msg();
-
+                while (true)
+                {
+                    serverStream = clientSocket.GetStream();
+                    //MessageBox.Show("receive");
+                    int i;
+                    while((i = serverStream.Read(instream, 0, buffsize))!=0)
+                    {
+                        returndate = System.Text.Encoding.ASCII.GetString(instream);
+                        // MessageBox.Show(returndate);
+                        readdate = returndate;
+                        //MessageBox.Show(readdate);
+                        if (readdate != "0")
+                        {
+                            this.pictureBox1.Image = Image.FromFile("C://Users//david2711//Desktop//RED.jfif");
+                            //MessageBox.Show("RED");
+                        }
+                        Thread.Sleep(3000);
+                        this.pictureBox1.Image = Image.FromFile("C://Users//david2711//Desktop//GREEN.jfif");
+                        //MessageBox.Show("GREEN");
+                        msg();
+                    }
+                    clientSocket.Close();
+                    Thread.Sleep(5);
+                 }      
             }
+            catch (SocketException ex)
+            {
+                Console.WriteLine("SocketException: {0}", ex);
+            }         
         }
 
         private void msg()
@@ -60,7 +87,7 @@ namespace client2
             }
             else
             {
-                textBox4.Text = readdate;
+                //textBox4.Text = readdate;
             }
         }
 
@@ -72,7 +99,6 @@ namespace client2
             serverStream.Flush();
             textBox3.Clear();
         }
-        
 
     }
 }
