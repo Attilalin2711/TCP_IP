@@ -18,7 +18,7 @@ namespace TCPIP
     public partial class frmSever : Form
     {
         private delegate void delUpdateUI(string sMessage);
-       
+        private delegate void safeCallDelegate(int sec);
         TcpListener m_server;
         Thread m_thrListening;
         NetworkStream stream = default(NetworkStream);
@@ -48,7 +48,7 @@ namespace TCPIP
             {
                 int nPort = Convert.ToInt32(txtPort.Text);//設定Port
                 IPAddress localAddr = IPAddress.Parse(txtIP.Text);//設定IP
-
+                
                 //Create TcpListener
                 m_server = new TcpListener(localAddr, nPort);
                 //start listening for client requests
@@ -90,6 +90,7 @@ namespace TCPIP
                     while ((i = stream.Read(btDatas, 0, btDatas.Length)) != 0) // 當有資料傳入時將資料顯示至介面上
                     {
                         sData = System.Text.Encoding.ASCII.GetString(btDatas, 0, i);
+                        startcount(3);
                         UdpateMessage("Received Data:" + sData);
                         //delay(30);
                         Thread.Sleep(50);
@@ -144,7 +145,7 @@ namespace TCPIP
             {
                 Form2 form2 = new Form2(sReceiveData);
                 delay(0);
-                
+                //startcount(3);
                 form2.ShowDialog();
 
                 /*
@@ -187,15 +188,28 @@ namespace TCPIP
         }
         public void startcount(int sec)
         {
-            label5.Text = sec + " seconds";
-            delaytime = sec;
-            timer1.Start();
+            if (label5.InvokeRequired)
+            {
+                var d = new safeCallDelegate(startcount);
+                label5.Invoke(d, new object[] {sec});
+                //label5.Text = sec + " seconds";
+                //MessageBox.Show("invoke=True");
+                delaytime = sec;
+                timer1.Start();
+            }
+            else
+            {
+                label5.Text = sec + " seconds";
+                //MessageBox.Show("invoke=FALSE");
+                delaytime = sec;
+                timer1.Start();
+            }
         }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(delaytime>0)
+            if (delaytime > 0)
             {
                 delaytime = delaytime - 1;
                 label5.Text = delaytime + " seconds";
@@ -205,10 +219,10 @@ namespace TCPIP
                 // If the user ran out of time, stop the timer, show
                 // a MessageBox, and fill in the answers.
                 timer1.Stop();
-                label5.Text=(" ");
+                label5.Text = (" ");
             }
         }
-
+            
         private void frmSever_Load(object sender, EventArgs e)
         {
 
@@ -217,6 +231,11 @@ namespace TCPIP
         private void button1_Click_2(object sender, EventArgs e)
         {
             startcount(3);
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
